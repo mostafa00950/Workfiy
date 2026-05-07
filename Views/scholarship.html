@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jobs - Workfiy</title>
+        <title>Internships - Workfiy</title>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- <link rel="stylesheet" href="../public/css/styles.css"> -->
@@ -15,27 +15,24 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="navbar-container">
                     <!-- Logo -->
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <a href="/" class="logo">Workfiy</a>
-                        </div>
+                    <div>
+                        <a href="/" class="logo">Workfiy</a>
                     </div>
 
                     <!-- Navigation Links -->
                     <!-- <div class="nav-links">
                     <a href="/Views/index.html" class="nav-link">Home</a>
-                    <a href="/Views/jobs.html" class="nav-link active">Jobs</a>
-                    <a href="/Views/scholarship.html" class="nav-link">Scholarship</a>
-                </div>
-                 -->
+                    <a href="/Views/jobs.html" class="nav-link">Jobs</a>
+                    <a href="/Views/scholarship.html" class="nav-link active">Scholarship</a>
+                </div> -->
                     <div class="nav-links">
 
                         <a href="/" class="nav-link ">Home</a>
 
-                        <a href="/jobs-page" class="nav-link active">Jobs</a>
+                        <a href="/jobs-page" class="nav-link">Jobs</a>
 
                         <a href="/scholarship-page"
-                            class="nav-link">Scholarship</a>
+                            class="nav-link active">Scholarship</a>
 
                         <a href="#contact" class="nav-link">Contact Us</a>
 
@@ -68,8 +65,9 @@
             <div id="mobile-menu" class="mobile-menu hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="/" class="mobile-menu-link">Home</a>
-                    <a href="/jobs" class="mobile-menu-link active">Jobs</a>
-                    <a href="/internships" class="mobile-menu-link">Interns</a>
+                    <a href="/jobs" class="mobile-menu-link">Jobs</a>
+                    <a href="/internships"
+                        class="mobile-menu-link active">Interns</a>
                     <a href="/#contact" class="mobile-menu-link">Contact Us</a>
                     <div class="mobile-menu-divider">
                         <div class="space-y-2">
@@ -87,18 +85,19 @@
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Find Your Perfect Job
+                    Find Your Perfect Internship
                 </h1>
                 <p class="hero-subtitle">
-                    Browse through hundreds of job opportunities from top
-                    companies
+                    Discover amazing internship opportunities and kickstart your
+                    career at top companies
                 </p>
 
+                <!-- Search Bar -->
                 <div class="search-container">
                     <input type="text"
                         id="search-input"
                         class="search-input"
-                        placeholder="Search for jobs, companies, or keywords...">
+                        placeholder="Search for internships, companies, or keywords...">
                     <div class="search-icon">
                         <i class="fas fa-search"></i>
                     </div>
@@ -106,6 +105,15 @@
                         id="search-button"
                         class="search-button">
                         Search
+                    </button>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary">
+                        Browse Internships
+                    </button>
+                    <button class="btn-secondary">
+                        Post an Internship
                     </button>
                 </div>
             </div>
@@ -119,47 +127,51 @@
                         <select class="filter-select">
                             <option>All Categories</option>
                             <option>Engineering</option>
-                            <option>Marketing</option>
                             <option>Design</option>
+                            <option>Marketing</option>
                             <option>Sales</option>
+                            <option>HR</option>
                             <option>Finance</option>
                         </select>
+
                         <select class="filter-select">
                             <option>All Locations</option>
                             <option>New York</option>
                             <option>San Francisco</option>
-                            <option>Remote</option>
                             <option>London</option>
                             <option>Tokyo</option>
+                            <option>Remote</option>
                         </select>
+
                         <select class="filter-select">
-                            <option>Job Type</option>
-                            <option>Full-time</option>
+                            <option>All Types</option>
+                            <option>Paid</option>
+                            <option>Unpaid</option>
                             <option>Part-time</option>
-                            <option>Contract</option>
-                            <option>Freelance</option>
+                            <option>Full-time</option>
                         </select>
                     </div>
+
                     <div class="job-count">
-                        <span class="font-semibold">245</span> jobs found
+                        Showing <strong>12</strong> internships
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Jobs Section -->
-        <section class="section">
+        <!-- Internships Section -->
+        <section id="internships" class="section">
             <div class="max-w-7xl">
                 <div class="job-grid">
-                    <!-- Job Card 1 -->
+                    <!-- Internship Card 1 -->
                     <div class="job-card">
                         <div class="job-card-header">
                             <div class="job-icon job-icon-indigo">
-                                <i class="fas fa-code"></i>
+                                <i class="fas fa-laptop-code"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Senior Frontend Developer</h3>
-                                <p>TechCorp Inc.</p>
+                                <h3>Software Engineering Intern</h3>
+                                <p>TechCorp Solutions</p>
                             </div>
                         </div>
                         <div class="job-card-meta">
@@ -169,83 +181,57 @@
                                 Full-time</span>
                         </div>
                         <p class="job-description">
-                            We're looking for an experienced frontend developer
-                            to join our growing team.
+                            Join our engineering team to build cutting-edge
+                            software solutions and learn from industry experts.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$80k - $120k</span>
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 2 -->
+                    <!-- Internship Card 2 -->
                     <div class="job-card">
                         <div class="job-card-header">
                             <div class="job-icon job-icon-green">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Marketing Manager</h3>
-                                <p>Growth Labs</p>
+                                <h3>Business Analyst Intern</h3>
+                                <p>DataDrive Analytics</p>
                             </div>
                         </div>
                         <div class="job-card-meta">
                             <span><i class="fas fa-map-marker-alt mr-1"></i> San
                                 Francisco</span>
                             <span><i class="fas fa-clock mr-1"></i>
-                                Full-time</span>
+                                Part-time</span>
                         </div>
                         <p class="job-description">
-                            Lead our marketing efforts and drive brand awareness
-                            across multiple channels.
+                            Analyze business processes and help drive
+                            data-driven decision making in a fast-paced
+                            environment.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$70k - $90k</span>
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 3 -->
+                    <!-- Internship Card 3 -->
                     <div class="job-card">
                         <div class="job-card-header">
                             <div class="job-icon job-icon-purple">
-                                <i class="fas fa-database"></i>
+                                <i class="fas fa-palette"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Data Scientist</h3>
-                                <p>DataDrive Solutions</p>
-                            </div>
-                        </div>
-                        <div class="job-card-meta">
-                            <span><i class="fas fa-map-marker-alt mr-1"></i>
-                                Remote</span>
-                            <span><i class="fas fa-clock mr-1"></i>
-                                Full-time</span>
-                        </div>
-                        <p class="job-description">
-                            Join our data team to build machine learning models
-                            and drive insights.
-                        </p>
-                        <div class="job-footer">
-                            <span class="job-salary">$90k - $130k</span>
-                            <button class="btn-apply">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Job Card 4 -->
-                    <div class="job-card">
-                        <div class="job-card-header">
-                            <div class="job-icon job-icon-yellow">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <div class="job-info">
-                                <h3>UI/UX Designer</h3>
+                                <h3>UI/UX Design Intern</h3>
                                 <p>Creative Studio</p>
                             </div>
                         </div>
@@ -253,57 +239,119 @@
                             <span><i class="fas fa-map-marker-alt mr-1"></i>
                                 London</span>
                             <span><i class="fas fa-clock mr-1"></i>
-                                Contract</span>
+                                Full-time</span>
                         </div>
                         <p class="job-description">
-                            Create beautiful and intuitive user experiences for
-                            our digital products.
+                            Create beautiful user interfaces and experiences for
+                            web and mobile applications.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$60k - $85k</span>
+                            <span class="job-salary text-blue-600">Unpaid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 5 -->
+                    <!-- Internship Card 4 -->
                     <div class="job-card">
                         <div class="job-card-header">
-                            <div class="job-icon job-icon-red">
-                                <i class="fas fa-server"></i>
+                            <div class="job-icon job-icon-yellow">
+                                <i class="fas fa-bullhorn"></i>
                             </div>
                             <div class="job-info">
-                                <h3>DevOps Engineer</h3>
-                                <p>CloudTech Systems</p>
+                                <h3>Marketing Intern</h3>
+                                <p>Growth Labs</p>
                             </div>
                         </div>
                         <div class="job-card-meta">
                             <span><i class="fas fa-map-marker-alt mr-1"></i>
                                 Remote</span>
                             <span><i class="fas fa-clock mr-1"></i>
-                                Full-time</span>
+                                Part-time</span>
                         </div>
                         <p class="job-description">
-                            Help us build and maintain scalable cloud
-                            infrastructure and CI/CD pipelines.
+                            Help us create and execute marketing campaigns
+                            across digital platforms.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$85k - $115k</span>
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 6 -->
+                    <!-- Internship Card 5 -->
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="job-icon job-icon-red">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>HR Intern</h3>
+                                <p>PeopleFirst Corp</p>
+                            </div>
+                        </div>
+                        <div class="job-card-meta">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i> New
+                                York</span>
+                            <span><i class="fas fa-clock mr-1"></i>
+                                Full-time</span>
+                        </div>
+                        <p class="job-description">
+                            Learn recruitment processes and help build company
+                            culture initiatives.
+                        </p>
+                        <div class="job-footer">
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
+                            <button class="btn-apply">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Internship Card 6 -->
                     <div class="job-card">
                         <div class="job-card-header">
                             <div class="job-icon job-icon-blue">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Content Writing Intern</h3>
+                                <p>MediaHub</p>
+                            </div>
+                        </div>
+                        <div class="job-card-meta">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i>
+                                Remote</span>
+                            <span><i class="fas fa-clock mr-1"></i>
+                                Part-time</span>
+                        </div>
+                        <p class="job-description">
+                            Write engaging content for blogs, social media, and
+                            marketing materials.
+                        </p>
+                        <div class="job-footer">
+                            <span class="job-salary text-blue-600">Unpaid
+                                Internship</span>
+                            <button class="btn-apply">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Internship Card 7 -->
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="job-icon job-icon-pink">
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Mobile Developer</h3>
+                                <h3>Mobile Development Intern</h3>
                                 <p>AppWorks Mobile</p>
                             </div>
                         </div>
@@ -314,55 +362,57 @@
                                 Full-time</span>
                         </div>
                         <p class="job-description">
-                            Develop amazing mobile applications for iOS and
-                            Android platforms.
+                            Develop iOS and Android applications using modern
+                            frameworks and tools.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$75k - $105k</span>
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 7 -->
-                    <div class="job-card">
-                        <div class="job-card-header">
-                            <div class="job-icon job-icon-pink">
-                                <i class="fas fa-bullhorn"></i>
-                            </div>
-                            <div class="job-info">
-                                <h3>Product Manager</h3>
-                                <p>Innovation Labs</p>
-                            </div>
-                        </div>
-                        <div class="job-card-meta">
-                            <span><i class="fas fa-map-marker-alt mr-1"></i> New
-                                York</span>
-                            <span><i class="fas fa-clock mr-1"></i>
-                                Full-time</span>
-                        </div>
-                        <p class="job-description">
-                            Lead product strategy and development for our
-                            flagship products.
-                        </p>
-                        <div class="job-footer">
-                            <span class="job-salary">$95k - $140k</span>
-                            <button class="btn-apply">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Job Card 8 -->
+                    <!-- Internship Card 8 -->
                     <div class="job-card">
                         <div class="job-card-header">
                             <div class="job-icon job-icon-orange">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Cybersecurity Intern</h3>
+                                <p>SecureNet Solutions</p>
+                            </div>
+                        </div>
+                        <div class="job-card-meta">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i>
+                                Remote</span>
+                            <span><i class="fas fa-clock mr-1"></i>
+                                Part-time</span>
+                        </div>
+                        <p class="job-description">
+                            Learn about security protocols and help protect our
+                            digital infrastructure.
+                        </p>
+                        <div class="job-footer">
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
+                            <button class="btn-apply">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Internship Card 9 -->
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="job-icon job-icon-teal">
                                 <i class="fas fa-chart-bar"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Business Analyst</h3>
-                                <p>Strategy Corp</p>
+                                <h3>Data Science Intern</h3>
+                                <p>DataDrive Solutions</p>
                             </div>
                         </div>
                         <div class="job-card-meta">
@@ -372,40 +422,102 @@
                                 Full-time</span>
                         </div>
                         <p class="job-description">
-                            Analyze business processes and drive data-driven
-                            decision making.
+                            Work with machine learning models and analyze large
+                            datasets to drive insights.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$70k - $95k</span>
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
                         </div>
                     </div>
 
-                    <!-- Job Card 9 -->
+                    <!-- Internship Card 10 -->
                     <div class="job-card">
                         <div class="job-card-header">
-                            <div class="job-icon job-icon-teal">
-                                <i class="fas fa-shield-alt"></i>
+                            <div class="job-icon job-icon-indigo">
+                                <i class="fas fa-camera"></i>
                             </div>
                             <div class="job-info">
-                                <h3>Security Engineer</h3>
-                                <p>SecureNet Solutions</p>
+                                <h3>Photography Intern</h3>
+                                <p>Creative Studios</p>
+                            </div>
+                        </div>
+                        <div class="job-card-meta">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i>
+                                London</span>
+                            <span><i class="fas fa-clock mr-1"></i>
+                                Part-time</span>
+                        </div>
+                        <p class="job-description">
+                            Capture stunning visuals for our clients and build
+                            your professional portfolio.
+                        </p>
+                        <div class="job-footer">
+                            <span class="job-salary text-blue-600">Unpaid
+                                Internship</span>
+                            <button class="btn-apply">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Internship Card 11 -->
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="job-icon job-icon-green">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Finance Intern</h3>
+                                <p>FinanceHub</p>
+                            </div>
+                        </div>
+                        <div class="job-card-meta">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i> New
+                                York</span>
+                            <span><i class="fas fa-clock mr-1"></i>
+                                Full-time</span>
+                        </div>
+                        <p class="job-description">
+                            Assist with financial analysis, budgeting, and
+                            investment strategies.
+                        </p>
+                        <div class="job-footer">
+                            <span class="job-salary text-green-600">Paid
+                                Internship</span>
+                            <button class="btn-apply">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Internship Card 12 -->
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <div class="job-icon job-icon-purple">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="job-info">
+                                <h3>Education Intern</h3>
+                                <p>EduTech Solutions</p>
                             </div>
                         </div>
                         <div class="job-card-meta">
                             <span><i class="fas fa-map-marker-alt mr-1"></i>
                                 Remote</span>
                             <span><i class="fas fa-clock mr-1"></i>
-                                Full-time</span>
+                                Part-time</span>
                         </div>
                         <p class="job-description">
-                            Protect our systems and ensure the security of our
-                            digital infrastructure.
+                            Help develop educational content and support online
+                            learning platforms.
                         </p>
                         <div class="job-footer">
-                            <span class="job-salary">$85k - $125k</span>
+                            <span class="job-salary text-blue-600">Unpaid
+                                Internship</span>
                             <button class="btn-apply">
                                 Apply Now
                             </button>
@@ -422,7 +534,7 @@
                     <button>2</button>
                     <button>3</button>
                     <button>...</button>
-                    <button>10</button>
+                    <button>5</button>
                     <button>
                         <i class="fas fa-chevron-right"></i>
                     </button>
@@ -449,7 +561,7 @@
                         </a>
                     </div>
                     <p class="footer-text">
-                        © 2024 Workfiy. All rights reserved.
+                        © 2026 Workfiy. All rights reserved.
                     </p>
                 </div>
             </div>

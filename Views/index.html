@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workfiy - Find Your Dream Job & Internship</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="/css/styles.css">
+   <!-- <link rel="stylesheet" href="../public/css/styles.css"> -->
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <!-- Navbar -->
+
+  
     <!-- Navbar -->
     <nav class="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,19 +23,35 @@
                     </div>
                 </div>
                 
-                <!-- Navigation Links -->
-                <div class="nav-links">
-                    <a href="/" class="nav-link active">Home</a>
-                    <a href="/jobs" class="nav-link">Jobs</a>
-                    <a href="/internships" class="nav-link">Interns</a>
-                    <a href="#contact" class="nav-link">Contact Us</a>
-                </div>
+                  <!-- Navigation Links -->
+              <div class="nav-links">
+
+    <a href="/" class="nav-link active">Home</a>
+
+    <a href="/jobs-page" class="nav-link">Jobs</a>
+
+    <a href="/scholarship-page" class="nav-link">Scholarship</a>
+
+    <a href="#contact" class="nav-link">Contact Us</a>
+
+</div>
                 
                 <!-- Login and Sign Up Buttons -->
-                <div class="nav-buttons">
-                    <button class="btn-login">Login</button>
-                    <button class="btn-signup">Sign Up</button>
-                </div>
+ <div class="nav-buttons">
+
+   <a href="/login" id="loginBtn">
+   <button class="btn-login">Login</button>
+</a>
+
+<a href="/register" id="registerBtn">
+   <button class="btn-signup">Sign Up</button>
+</a>
+
+<button id="logoutBtn" style="display:none;">
+   Logout
+</button>
+
+</div>
                 
                 <!-- Mobile menu button -->
                 <div>
@@ -391,7 +411,7 @@
                     </div>
                 </div>
             </div>
-            <div class="show-more"><a href="/internships">Show More Internships</a></div>
+            <div class="show-more"><a href="/Views/internship.html">Show More Internships</a></div>
         </div>
     </section>
 
