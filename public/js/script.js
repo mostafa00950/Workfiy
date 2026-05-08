@@ -89,27 +89,37 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-//!  Logout Buttonconst loginBtn = document.getElementById("loginBtn");
-const registerBtn = document.getElementById("registerBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-function updateAuthUI() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    registerBtn.style.display = "none";
-    logoutBtn.style.display = "inline-block";
-  } else {
-    loginBtn.style.display = "inline-block";
-    registerBtn.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-  }
-}
-// logout
-function handleLogout() {
-  localStorage.removeItem("isLoggedIn");
-  updateAuthUI();
-  window.location.href = "/";
-}
+// //!  Logout Buttonconst loginBtn = document.getElementById("loginBtn");
 
-logoutBtn.addEventListener("click", handleLogout);
-updateAuthUI();
+document.addEventListener("DOMContentLoaded", function () {
+  const loginBtn = document.getElementById("loginBtn");
+  const registerBtn = document.getElementById("registerBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  // ── Update nav visibility ──────────────────────────────────────────────
+  function updateAuthUI() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (loginBtn) loginBtn.style.display = isLoggedIn ? "none" : "inline-block";
+    if (registerBtn)
+      registerBtn.style.display = isLoggedIn ? "none" : "inline-block";
+    if (logoutBtn)
+      logoutBtn.style.display = isLoggedIn ? "inline-block" : "none";
+  }
+
+  // ── Logout handler ─────────────────────────────────────────────────────
+  function handleLogout(e) {
+    e.preventDefault();
+    localStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("isAdmin");
+    window.location.href = "/";
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", handleLogout);
+  } else {
+    console.warn("logoutBtn not found — check your HTML id attribute");
+  }
+
+  updateAuthUI();
+});

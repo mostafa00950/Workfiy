@@ -9,31 +9,56 @@ form.addEventListener("submit", async (e) => {
     password: document.getElementById("password").value,
   };
 
-  const response = await fetch("/login", {
-    method: "POST",
+  try {
+    const response = await fetch("/login", {
+      method: "POST",
 
-    headers: {
-      "Content-Type": "application/json",
-    },
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-    body: JSON.stringify(loginData),
-  });
+      body: JSON.stringify(loginData),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  const msg = document.getElementById("loginMsg");
+    const msg = document.getElementById("loginMsg");
 
-  msg.innerText = data.msg;
+    msg.innerText = data.msg;
 
-  if (data.msg === "Login Success") {
+    // Wrong بيانات
+
+    if (data.msg === "Wrong Password" || data.msg === "Email Not Found") {
+      msg.style.color = "red";
+
+      return;
+    }
+
+    // Login Success
+
     msg.style.color = "lime";
 
     localStorage.setItem("isLoggedIn", "true");
 
-    setTimeout(() => {
-      window.location.href = "/";
-    }, 1000);
-  } else {
-    msg.style.color = "red";
+    // Admin Login
+
+    if (data.isAdmin) {
+      sessionStorage.setItem("isAdmin", "true");
+
+      setTimeout(() => {
+        window.location.href = "/admin";
+      }, 1000);
+    }
+
+    // Normal User
+    else {
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    }
+  } catch (error) {
+    console.log(error);
+
+    alert("Server Error");
   }
 });

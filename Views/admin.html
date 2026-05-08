@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard - Workfiy</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <!-- <link rel="stylesheet" href="/css/admin.css"> -->
+    </head>
+    <body>
+        <!-- Admin Authentication Check -->
+        <script>
+        const isAdmin = sessionStorage.getItem("isAdmin");
+        if (!isAdmin) {
+            window.location.href = "/admin-login";
+        }
+    </script>
+
+        <!-- Admin Navbar -->
+        <nav class="admin-navbar">
+
+            <div class="admin-container">
+
+                <div class="admin-nav-brand">
+
+                    <i class="fas fa-briefcase"></i>
+
+                    <span>Workfiy Admin</span>
+
+                </div>
+
+                <div class="admin-nav-links">
+
+                    <a
+                        href="#jobs"
+                        class="admin-nav-link active">
+
+                        <i class="fas fa-briefcase"></i>
+
+                        Jobs
+
+                    </a>
+
+                    <button class="admin-nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- Admin Dashboard Container -->
+        <div class="admin-dashboard">
+            <div class="admin-container">
+                <!-- Dashboard Header -->
+                <div class="admin-header">
+                    <h1 class="admin-title">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Admin Dashboard
+                    </h1>
+                    <p class="admin-subtitle">Manage job listings and
+                        applications</p>
+                </div>
+
+                <!-- Add Job Section -->
+                <div class="admin-section">
+                    <div class="admin-section-header">
+                        <h2 class="admin-section-title">
+                            <i class="fas fa-plus-circle"></i>
+                            Add New Job
+                        </h2>
+                    </div>
+
+                    <div class="admin-form-container">
+                        <form id="add-job-form" class="admin-form">
+                            <div class="admin-form-grid">
+                                <div class="admin-form-group">
+                                    <label for="job-title"
+                                        class="admin-form-label">
+                                        <i class="fas fa-heading"></i> Job Title
+                                    </label>
+                                    <input type="text" id="job-title"
+                                        class="admin-form-input"
+                                        placeholder="e.g. Senior Frontend Developer"
+                                        required>
+                                    <span class="admin-form-error"
+                                        id="title-error"></span>
+                                </div>
+
+                                <div class="admin-form-group">
+                                    <label for="job-company"
+                                        class="admin-form-label">
+                                        <i class="fas fa-building"></i> Company
+                                        Name
+                                    </label>
+                                    <input type="text" id="job-company"
+                                        class="admin-form-input"
+                                        placeholder="e.g. TechCorp Inc."
+                                        required>
+                                    <span class="admin-form-error"
+                                        id="company-error"></span>
+                                </div>
+
+                                <div class="admin-form-group">
+                                    <label for="job-salary"
+                                        class="admin-form-label">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        Salary
+                                    </label>
+                                    <input type="number" id="job-salary"
+                                        class="admin-form-input"
+                                        placeholder="e.g. 80000" min="0"
+                                        required>
+                                    <span class="admin-form-error"
+                                        id="salary-error"></span>
+                                </div>
+
+                                <div class="admin-form-group">
+                                    <label for="job-shift"
+                                        class="admin-form-label">
+                                        <i class="fas fa-clock"></i> Shift
+                                    </label>
+                                    <select id="job-shift"
+                                        class="admin-form-select" required>
+                                        <option value>Select Shift</option>
+                                        <option
+                                            value="Full-time">Full-time</option>
+                                        <option
+                                            value="Part-time">Part-time</option>
+                                        <option
+                                            value="Contract">Contract</option>
+                                        <option value="Remote">Remote</option>
+                                    </select>
+                                    <span class="admin-form-error"
+                                        id="shift-error"></span>
+                                </div>
+
+                                <div class="admin-form-group">
+                                    <label for="job-location"
+                                        class="admin-form-label">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Location
+                                    </label>
+                                    <input type="text" id="job-location"
+                                        class="admin-form-input"
+                                        placeholder="e.g. New York, NY"
+                                        required>
+                                    <span class="admin-form-error"
+                                        id="location-error"></span>
+                                </div>
+
+                                <div class="admin-form-group">
+                                    <label for="job-description"
+                                        class="admin-form-label">
+                                        <i class="fas fa-align-left"></i>
+                                        Description
+                                    </label>
+                                    <textarea id="job-description"
+                                        class="admin-form-textarea"
+                                        placeholder="e.g. We're looking for an experienced developer to join our team..."
+                                        rows="4" required></textarea>
+                                    <span class="admin-form-error"
+                                        id="description-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="admin-form-actions">
+                                <button type="submit"
+                                    class="admin-btn admin-btn-primary">
+                                    <i class="fas fa-plus"></i> Add Job
+                                </button>
+                                <button type="button"
+                                    class="admin-btn admin-btn-secondary"
+                                    onclick="resetForm()">
+                                    <i class="fas fa-redo"></i> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Jobs Display Section -->
+                <div class="admin-section">
+                    <div class="admin-section-header">
+                        <h2 class="admin-section-title">
+                            <i class="fas fa-list"></i>
+                            All Jobs
+                        </h2>
+                    </div>
+
+                    <div id="jobs-container" class="job-grid">
+                        <!-- Jobs will be dynamically rendered here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div id="message-container" class="admin-message-container"></div>
+
+        <!-- Scripts -->
+        <script src="/js/script.js"></script>
+    </body>
+</html>َ

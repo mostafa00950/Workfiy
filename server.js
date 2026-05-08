@@ -356,6 +356,7 @@ app.post("/register", async (req, res) => {
       specialist,
     });
     await newUser.save();
+    console.log(newUser);
     res.json({
       msg: "Register Success",
       data: newUser,
@@ -367,30 +368,56 @@ app.post("/register", async (req, res) => {
     });
   }
 });
-//^  login Api
+
+//^ login Api
+
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const foundUser = await User.findOne({ email });
+
     if (!foundUser) {
       return res.json({
         msg: "Email Not Found",
       });
     }
+
     if (foundUser.password !== password) {
       return res.json({
         msg: "Wrong Password",
       });
     }
+
+    // Admin Check
+
+    if (email === "admin@gmail.com" && password === "1234") {
+      return res.json({
+        msg: "Admin Login Success",
+
+        isAdmin: true,
+      });
+    }
+
+    // Normal User
+
     res.json({
       msg: "Login Success",
+
+      isAdmin: false,
     });
   } catch (error) {
     console.log(error);
+
     res.status(500).json({
       msg: error.message,
     });
   }
+});
+
+//^  admin Api
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "Views", "admin.html"));
 });
 //============================================================//
 // run al port 3la 3000
