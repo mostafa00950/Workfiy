@@ -15,7 +15,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <a href="/" class="logo">Workfiy</a>
+                        <a href="/Views/index.html" class="logo">Workfiy</a>
                     </div>
                 </div>
                 
@@ -23,14 +23,14 @@
                 <div class="nav-links">
                     <a href="/Views/index.html" class="nav-link active">Home</a>
                     <a href="/Views/jobs.html" class="nav-link">Jobs</a>
-                    <a href="/Views/scholarship.html" class="nav-link">Scholarship</a>
+                    <a href="/Views/scholarship.html" class="nav-link">Scholarships</a>
                     <a href="#contact" class="nav-link">Contact Us</a>
                 </div>
                 
                 <!-- Login and Sign Up Buttons -->
                 <div class="nav-buttons">
-                    <button class="btn-login">Login</button>
-                    <button class="btn-signup">Sign Up</button>
+                    <button class="btn-login"><a href="/Views/login.html">Login</a></button>
+                    <button class="btn-signup"><a href="/Views/register.html">Sign Up</a></button>
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -45,15 +45,15 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="mobile-menu hidden">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/" class="mobile-menu-link">Home</a>
-                <a href="/jobs" class="mobile-menu-link">Jobs</a>
-                <a href="/internships" class="mobile-menu-link">Interns</a>
+                <a href="/Views/index.html" class="mobile-menu-link">Home</a>
+                <a href="/Views/jobs.html" class="mobile-menu-link">Jobs</a>
+                <a href="/Views/scholarship.html" class="mobile-menu-link">Scholarships</a>
                 <a href="#contact" class="mobile-menu-link">Contact Us</a>
-                <div class="mobile-menu-divider">
-                    <div class="space-y-2">
-                        <button class="btn-login mobile-menu-link">Login</button>
-                        <button class="btn-signup mobile-menu-link">Sign Up</button>
-                    </div>
+                <div class="mobile-menu-divider">  
+                <div class="space-y-2">
+                    <button class="btn-login"><a href="/Views/login.html">Login</a></button>
+                    <button class="btn-signup"><a href="/Views/register.html">Sign Up</a></button>
+                </div>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 Find Your Dream Career
             </h1>
             <p class="hero-subtitle">
-                Discover amazing job opportunities and internships at top companies
+                Discover amazing job opportunities and Scholarships at top companies
             </p>
                 
                 <!-- Search Bar -->
@@ -86,11 +86,11 @@
                 </div>
                 
                 <div class="hero-buttons">
-                    <button class="btn-primary" onclick="window.location.href='/jobs'">
+                    <button class="btn-primary" onclick="window.location.href='/Views/jobs.html'">
                         Browse Jobs
                     </button>
-                    <button class="btn-secondary">
-                        Post a Job
+                    <button class="btn-primary" onclick="window.location.href='/Views/scholarship.html'">
+                        Browse Scholarships
                     </button>
                 </div>
             </div>
@@ -109,139 +109,8 @@
                 </p>
             </div>
             
-            <div class="job-grid">
-                <!-- Job Card 1 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-indigo">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Senior Frontend Developer</h3>
-                            <p>TechCorp Inc.</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        We're looking for an experienced frontend developer to join our growing team.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$80k - $120k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Job Card 2 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-green">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Marketing Manager</h3>
-                            <p>Growth Labs</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Lead our marketing efforts and drive brand awareness across multiple channels.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$70k - $90k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Job Card 3 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-purple">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Data Scientist</h3>
-                            <p>DataDrive Solutions</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Join our data team to build machine learning models and drive insights.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$90k - $130k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Job Card 4 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-yellow">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>UI/UX Designer</h3>
-                            <p>Creative Studio</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Create beautiful and intuitive user experiences for our digital products.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$60k - $85k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Job Card 5 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-red">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>DevOps Engineer</h3>
-                            <p>CloudTech Systems</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Help us build and maintain scalable cloud infrastructure and CI/CD pipelines.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$85k - $115k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Job Card 6 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-blue">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Mobile Developer</h3>
-                            <p>AppWorks Mobile</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Develop amazing mobile applications for iOS and Android platforms.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary">$75k - $105k</span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div id="showedJobs" class="job-grid"></div>
+                
             <div class="show-more"><a href="/Views/jobs.html">Show More Jobs</a></div>
         </div>
     </section>
@@ -251,147 +120,16 @@
         <div class="max-w-7xl">
             <div class="section-header">
                 <h2 class="section-title">
-                    Internship Opportunities
+                    Scholarship Opportunities
                 </h2>
                 <p class="section-subtitle">
                     Kickstart your career with hands-on experience at leading companies
                 </p>
             </div>
             
-            <div class="job-grid">
-                <!-- Intern Card 1 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-indigo">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Software Engineering Intern</h3>
-                            <p>StartupHub</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Gain hands-on experience in software development and work with cutting-edge technologies.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-green-600">Paid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Intern Card 2 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-green">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Marketing Intern</h3>
-                            <p>BrandBoost Agency</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Learn digital marketing strategies and help create compelling campaigns.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-green-600">Paid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Intern Card 3 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-purple">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Business Analyst Intern</h3>
-                            <p>ConsultPro</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Analyze business processes and help drive data-driven decision making.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-green-600">Paid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Intern Card 4 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-yellow">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Graphic Design Intern</h3>
-                            <p>Creative Minds</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Create stunning visual designs and build your portfolio with real projects.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-blue-600">Unpaid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Intern Card 5 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-red">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>HR Intern</h3>
-                            <p>PeopleFirst Corp</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Learn recruitment processes and help build company culture initiatives.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-green-600">Paid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Intern Card 6 -->
-                <div class="job-card">
-                    <div class="job-card-header">
-                        <div class="job-icon job-icon-blue">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                        <div class="job-info">
-                            <h3>Content Writing Intern</h3>
-                            <p>MediaHub</p>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Write engaging content for blogs, social media, and marketing materials.
-                    </p>
-                    <div class="job-footer">
-                        <span class="job-salary text-blue-600">Unpaid Internship</span>
-                        <button class="btn-apply">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="show-more"><a href="/Views/internship.html">Show More Internships</a></div>
+            <div id="showedScholars" class="job-grid"></div>
+                
+            <div class="show-more"><a href="/Views/scholarship.html">Show More Scholarship</a></div>
         </div>
     </section>
 
@@ -481,6 +219,8 @@
             </div>
         </div>
     </footer>
-<script src="/js/script.js"></script>
+<script src="../public/js/script.js"></script>
+<script src="../public/js/jobHome.js"></script>
+<script src="../public/js/scholarHome.js"></script>
 </body>
 </html>

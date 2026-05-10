@@ -1,7 +1,10 @@
 const express = require("express")
+const cors = require("cors")
 const app = express()
 app.use(express.json());
-
+app.use(cors({
+    origin: "http://127.0.0.1:5500"
+}))
 // Database connection ya zangi anta w hwa
 const mongoose = require("mongoose")
 mongoose.connect("mongodb://127.0.0.1:27017/workfiyDB")
@@ -138,6 +141,20 @@ app.patch("/api/user/:userId", async(req, res) => {
 
 //============================================================//
 // Jobs Api //
+// Get with limit
+app.get("/api/jobHome", async(req, res) => {
+
+  try {
+    let limit = Number(req.query.limit)
+    let jobs = await job.find().limit(limit)
+    res.json(jobs)
+  }
+
+  catch(error){
+    console.log(error)
+    res.status(500).json({ msg: "Server Error" });
+  }
+})
 // Get all Jobs Api
 app.get("/api/jobs", async(req, res) => {
 
@@ -233,6 +250,20 @@ app.patch("/api/jobs/:jobId", async(req, res) => {
 
 //============================================================//
 // Scholarship Api //
+// Get Scholars with limits 
+app.get("/api/scholarshipHome", async(req, res) => {
+
+  try {
+    let limit = Number(req.query.limit)
+    let scholarshipH = await scholarship.find().limit(limit)
+    res.json(scholarshipH)
+  }
+
+  catch(error){
+    console.log(error)
+    res.status(500).json({ msg: "Server Error" });
+  }
+})
 // Get all scholarships Api
 app.get("/api/scholarships", async(req, res) => {
   try {
