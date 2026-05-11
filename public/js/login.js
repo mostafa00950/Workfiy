@@ -5,60 +5,37 @@ form.addEventListener("submit", async (e) => {
 
   const loginData = {
     email: document.getElementById("email").value,
-
     password: document.getElementById("password").value,
   };
 
   try {
-    const response = await fetch("/login", {
+    const response = await fetch("http://localhost:3000/api/login", {
       method: "POST",
-
-      headers: {
-        "Content-Type": "application/json",
-      },
-
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
     });
 
     const data = await response.json();
-
     const msg = document.getElementById("loginMsg");
-
     msg.innerText = data.msg;
 
-    // Wrong بيانات
+    if (data.msg === "Login Success" || data.msg === "Admin Login Success") {
+      msg.style.color = "lime";
+      localStorage.setItem("isLoggedIn", "true");
 
-    if (data.msg === "Wrong Password" || data.msg === "Email Not Found") {
+      setTimeout(() => {
+        if (data.isAdmin) {
+          window.location.href = "http://localhost:3000/admin.html"; 
+        } else {
+          window.location.href = "index.html"; 
+        }
+      }, 1000);
+    } else {
       msg.style.color = "red";
-
-      return;
     }
 
-    // Login Success
-
-    msg.style.color = "lime";
-
-    localStorage.setItem("isLoggedIn", "true");
-
-    // Admin Login
-
-    if (data.isAdmin) {
-      sessionStorage.setItem("isAdmin", "true");
-
-      setTimeout(() => {
-        window.location.href = "/admin";
-      }, 1000);
-    }
-
-    // Normal User
-    else {
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
-    }
   } catch (error) {
     console.log(error);
-
     alert("Server Error");
   }
 });

@@ -1,125 +1,63 @@
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
+const form = document.getElementById("loginForm");
 
-if (searchInput && searchButton) {
-  // Search on button click
-  searchButton.addEventListener("click", performSearch);
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-  // Search on Enter key press
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      performSearch();
-    }
-  });
+  const loginData = {
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value,
+  };
 
-  function performSearch() {
-    const searchTerm = searchInput.value.trim();
-
-    if (searchTerm) {
-      // For now, we'll just show an alert with the search term
-      // In a real application, this would filter jobs or navigate to search results
-      alert(
-        `Searching for: "${searchTerm}"\n\nIn a real application, this would show matching jobs and internships.`,
-      );
-
-      // Clear the search input
-      searchInput.value = "";
-
-      // Navigate to jobs page
-      window.location.href = "/jobs";
-    } else {
-      alert("Please enter a search term to find jobs and internships.");
-    }
-  }
-}
-
-// Mobile menu toggle
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
-
-if (mobileMenuButton && mobileMenu) {
-  mobileMenuButton.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-
-  // Close mobile menu when clicking on a link
-  const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-  mobileMenuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
+  try {
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(loginData),
     });
-  });
-}
 
-// Contact form submission
-const contactForm = document.getElementById("contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+    const data = await response.json();
+    const msg = document.getElementById("loginMsg");
+    msg.innerText = data.msg;
 
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
+    if (data.msg === "Login Success" || data.msg === "Admin Login Success") {
+      msg.style.color = "lime";
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("isAdmin", data.isAdmin);
+      
+      if (data.msg === "Login Success" || data.msg === "Admin Login Success") {
+        msg.style.color = "lime";
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isAdmin", data.isAdmin);
+        localStorage.setItem("userName", data.data.name); // ← هنا
+            
+        setTimeout(() => {
+          if (data.isAdmin) {
+            window.location.href = "http://localhost:3000/admin.html";
+          } else {
+            window.location.href = "index.html";
+          }
+        }, 1000);
+      }
+      if (data.data) {
+        localStorage.setItem("userName", data.data.name);
+      } else {
+        localStorage.setItem("userName", "Admin");
+      }
 
-    // Here you would normally send the data to a server
-    // For now, we'll just show a success message
-    alert(
-      `Thank you, ${name}! Your message has been received. We'll get back to you soon.`,
-    );
+      setTimeout(() => {
+        if (data.isAdmin) {
+          window.location.href = "http://localhost:3000/admin.html";
+        } else {
+          window.location.href = "index.html";
+        }
+      }, 1000);
 
-    // Reset the form
-    contactForm.reset();
-  });
-}
-
-// Smooth scroll behavior for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    } else {
+      msg.style.color = "red";
     }
-  });
-});
 
-// //!  Logout Buttonconst loginBtn = document.getElementById("loginBtn");
-
-document.addEventListener("DOMContentLoaded", function () {
-  const loginBtn = document.getElementById("loginBtn");
-  const registerBtn = document.getElementById("registerBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-
-  // ── Update nav visibility ──────────────────────────────────────────────
-  function updateAuthUI() {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
-    if (loginBtn) loginBtn.style.display = isLoggedIn ? "none" : "inline-block";
-    if (registerBtn)
-      registerBtn.style.display = isLoggedIn ? "none" : "inline-block";
-    if (logoutBtn)
-      logoutBtn.style.display = isLoggedIn ? "inline-block" : "none";
+  } catch (error) {
+    console.log(error);
+    alert("Server Error");
   }
-
-  // ── Logout handler ─────────────────────────────────────────────────────
-  function handleLogout(e) {
-    e.preventDefault();
-    localStorage.removeItem("isLoggedIn");
-    sessionStorage.removeItem("isAdmin");
-    window.location.href = "/";
-  }
-
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", handleLogout);
-  } else {
-    console.warn("logoutBtn not found — check your HTML id attribute");
-  }
-
-  updateAuthUI();
 });

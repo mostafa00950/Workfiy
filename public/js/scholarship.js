@@ -1,3 +1,33 @@
+function applyScholar(scholarshipId) {
+    let cvInput = document.createElement("input")
+    cvInput.type = "file"
+    cvInput.accept = ".pdf,.doc,.docx"
+
+    cvInput.onchange = () => {
+        let file = cvInput.files[0]
+
+        if (!file) return
+
+        let formData = new FormData()
+        formData.append("cv", file)
+        formData.append("scholarshipId", scholarshipId)
+
+        let uploadRequest = new XMLHttpRequest()
+        uploadRequest.open("POST", "http://localhost:3000/api/applyScholarship")
+        uploadRequest.send(formData)
+
+        uploadRequest.onload = () => {
+            if (uploadRequest.status >= 200 && uploadRequest.status < 300) {
+                alert("✅ تم إرسال طلبك بنجاح!")
+            } else {
+                alert("❌ حصل خطأ، حاول تاني")
+            }
+        }
+    }
+
+    cvInput.click()
+}
+
 let requestFullScholars = new XMLHttpRequest()
 requestFullScholars.open("GET", "http://localhost:3000/api/scholarships")
 requestFullScholars.responseType = "json"
@@ -66,8 +96,8 @@ requestFullScholars.onload = () => {
                     <span>
                         ${details}
                     </span>
-                    <button class="btn-apply">
-                        Learn More
+                    <button class="btn-apply" onclick="applyScholar('${item.scholarshipId}')">
+                        Learn Now
                     </button>
                 </div>
             </div>

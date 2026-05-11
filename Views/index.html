@@ -24,7 +24,6 @@
                     <a href="/Views/index.html" class="nav-link active">Home</a>
                     <a href="/Views/jobs.html" class="nav-link">Jobs</a>
                     <a href="/Views/scholarship.html" class="nav-link">Scholarships</a>
-                    <a href="#contact" class="nav-link">Contact Us</a>
                 </div>
                 
                 <!-- Login and Sign Up Buttons -->
@@ -48,7 +47,6 @@
                 <a href="/Views/index.html" class="mobile-menu-link">Home</a>
                 <a href="/Views/jobs.html" class="mobile-menu-link">Jobs</a>
                 <a href="/Views/scholarship.html" class="mobile-menu-link">Scholarships</a>
-                <a href="#contact" class="mobile-menu-link">Contact Us</a>
                 <div class="mobile-menu-divider">  
                 <div class="space-y-2">
                     <button class="btn-login"><a href="/Views/login.html">Login</a></button>
@@ -108,9 +106,8 @@
                     Explore the latest job opportunities from top employers
                 </p>
             </div>
-            
+            <input type="file" id="cvInput" accept=".pdf,.doc,.docx" style="display:none">
             <div id="showedJobs" class="job-grid"></div>
-                
             <div class="show-more"><a href="/Views/jobs.html">Show More Jobs</a></div>
         </div>
     </section>
@@ -130,68 +127,6 @@
             <div id="showedScholars" class="job-grid"></div>
                 
             <div class="show-more"><a href="/Views/scholarship.html">Show More Scholarship</a></div>
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section id="contact" class="section">
-        <div class="max-w-7xl">
-            <div class="section-header">
-                <h2 class="section-title">
-                    Get In Touch
-                </h2>
-                <p class="section-subtitle">
-                    Have questions? We'd love to hear from you
-                </p>
-            </div>
-            
-            <div class="contact-form-container">
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name" class="form-label">
-                                    Full Name
-                                </label>
-                                <input type="text" id="name" name="name" required
-                                    class="form-input"
-                                    placeholder="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">
-                                    Email Address
-                                </label>
-                                <input type="email" id="email" name="email" required
-                                    class="form-input"
-                                    placeholder="john@example.com">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">
-                                Subject
-                            </label>
-                            <input type="text" id="subject" name="subject" required
-                                class="form-input"
-                                placeholder="How can we help?">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">
-                                Message
-                            </label>
-                            <textarea id="message" name="message" rows="5" required
-                                class="form-textarea"
-                                placeholder="Tell us more about your inquiry..."></textarea>
-                        </div>
-                        
-                        <button type="submit"
-                            class="btn-submit">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
         </div>
     </section>
 

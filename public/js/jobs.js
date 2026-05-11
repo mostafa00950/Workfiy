@@ -1,3 +1,34 @@
+function applyJob(jobId) {
+
+    let cvInput = document.createElement("input")
+    cvInput.type = "file"
+    cvInput.accept = ".pdf,.doc,.docx"
+
+    cvInput.onchange = () => {
+        let file = cvInput.files[0]
+
+        if (!file) return
+
+        let formData = new FormData()
+        formData.append("cv", file)
+        formData.append("jobId", jobId)
+
+        let uploadRequest = new XMLHttpRequest()
+        uploadRequest.open("POST", "http://localhost:3000/api/applyJob")
+        uploadRequest.send(formData)
+
+        uploadRequest.onload = () => {
+            if (uploadRequest.status >= 200 && uploadRequest.status < 300) {
+                alert("✅ تم إرسال طلبك بنجاح!")
+            } else {
+                alert("❌ حصل خطأ، حاول تاني")
+            }
+        }
+    }
+
+    cvInput.click()
+}
+
 let requestJob = new XMLHttpRequest();
 requestJob.open("GET", "http://localhost:3000/api/jobs");
 requestJob.responseType = "json";
@@ -64,9 +95,9 @@ requestJob.onload = () => {
                         <span class="job-salary">
                             ${salary} EGP
                         </span>
-                        <button class="btn-apply">
-                            Apply Now
-                        </button>
+                    <button class="btn-apply" onclick="applyJob()">
+                        Apply Now
+                    </button>
                     </div>
                 </div>
             `

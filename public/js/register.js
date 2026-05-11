@@ -5,39 +5,36 @@ form.addEventListener("submit", async (e) => {
 
   const userData = {
     name: document.getElementById("fullName").value,
-
     email: document.getElementById("email").value,
-
     password: document.getElementById("password").value,
-
     gender: document.getElementById("gender").value,
-
     specialist: document.getElementById("specialist").value,
   };
 
-  const response = await fetch("/register", {
-    method: "POST",
+  try {
+    const response = await fetch("http://localhost:3000/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
 
-    headers: {
-      "Content-Type": "application/json",
-    },
+    const data = await response.json();
+    const msg = document.getElementById("registerMsg");
+    msg.innerText = data.msg;
 
-    body: JSON.stringify(userData),
-  });
+    if (data.msg === "Register Success") {
+      msg.style.color = "lime";
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    } else {
+      msg.style.color = "red";
+    }
 
-  const data = await response.json();
-
-  const msg = document.getElementById("registerMsg");
-
-  msg.innerText = data.msg;
-
-  if (data.msg === "Register Success") {
-    msg.style.color = "lime";
-
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 1500);
-  } else {
-    msg.style.color = "red";
+  } catch (error) {
+    console.log(error);
+    alert("Server Error");
   }
 });

@@ -12,9 +12,9 @@
     <body>
         <!-- Admin Authentication Check -->
         <script>
-        const isAdmin = sessionStorage.getItem("isAdmin");
-        if (!isAdmin) {
-            window.location.href = "/admin-login";
+        const isAdmin = localStorage.getItem("isAdmin");
+        if (isAdmin !== "true") {
+        window.location.href = "http://127.0.0.1:5500/Views/admin.html";
         }
     </script>
 
@@ -32,16 +32,6 @@
                 </div>
 
                 <div class="admin-nav-links">
-
-                    <a
-                        href="#jobs"
-                        class="admin-nav-link active">
-
-                        <i class="fas fa-briefcase"></i>
-
-                        Jobs
-
-                    </a>
 
                     <button class="admin-nav-link" id="logoutBtn">
                         <i class="fas fa-sign-out-alt"></i>
@@ -204,7 +194,79 @@
         <!-- Success/Error Messages -->
         <div id="message-container" class="admin-message-container"></div>
 
+
+                <!-- Add Scholarship Section -->
+        <div class="admin-section">
+            <div class="admin-section-header">
+                <h2 class="admin-section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Add New Scholarship
+                </h2>
+            </div>
+        
+            <div class="admin-form-container">
+                <form id="add-scholarship-form" class="admin-form">
+                    <div class="admin-form-grid">
+                        <div class="admin-form-group">
+                            <label for="scholar-title" class="admin-form-label">
+                                <i class="fas fa-heading"></i> Scholarship Title
+                            </label>
+                            <input type="text" id="scholar-title"
+                                class="admin-form-input"
+                                placeholder="e.g. Full Stack Web Development"
+                                required>
+                        </div>
+                    
+                        <div class="admin-form-group">
+                            <label for="scholar-description" class="admin-form-label">
+                                <i class="fas fa-align-left"></i> Description
+                            </label>
+                            <textarea id="scholar-description"
+                                class="admin-form-textarea"
+                                placeholder="e.g. A full scholarship for talented developers..."
+                                rows="4" required></textarea>
+                        </div>
+                    
+                        <div class="admin-form-group">
+                            <label for="scholar-details" class="admin-form-label">
+                                <i class="fas fa-info-circle"></i> Details
+                            </label>
+                            <input type="text" id="scholar-details"
+                                class="admin-form-input"
+                                placeholder="e.g. 6 months - Online"
+                                required>
+                        </div>
+                    </div>
+                
+                    <div class="admin-form-actions">
+                        <button type="submit" class="admin-btn admin-btn-primary">
+                            <i class="fas fa-plus"></i> Add Scholarship
+                        </button>
+                        <button type="button" class="admin-btn admin-btn-secondary"
+                            onclick="resetScholarForm()">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scholarships Display Section -->
+        <div class="admin-section">
+            <div class="admin-section-header">
+                <h2 class="admin-section-title">
+                    <i class="fas fa-list"></i>
+                    All Scholarships
+                </h2>
+            </div>
+        
+            <div id="scholarships-container" class="job-grid">
+                <!-- Scholarships will be dynamically rendered here -->
+            </div>
+        </div>
+
         <!-- Scripts -->
-        <script src="/js/script.js"></script>
+        <script src="../public/js/admin.js"></script>
+        <script src="../public/js/script.js"></script>
     </body>
 </html>َ
